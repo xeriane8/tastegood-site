@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Good – What’s Good Here?</title>
+<meta name="description" content="Good tells you what to order. Rate the thing you ordered, not the restaurant, and find what’s good near you.">
+<meta property="og:title" content="Good – What’s Good Here?">
+<meta property="og:description" content="Good tells you what to order. Rate the thing you ordered, not the restaurant, and find what’s good near you.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.tastegood.app/">
+<meta property="og:image" content="https://www.tastegood.app/images/icon-1024.png">
+<link rel="icon" href="images/icon-1024.png">
+<link rel="apple-touch-icon" href="images/icon-1024.png">
+<style>
+  :root {
+    color-scheme: light;
+    --ink: #1A1A1A;
+    --ground: #FFFFFF;
+    --grey: #6B6B6B;
+    --hair: #EBEBEB;
+    --coral: #FF4D4D;
+    --coral-text: #C62828;
+    --teal: #00C7BE;
+    --app: #FF9500; --side: #00C7BE; --main: #FF4D4D; --dessert: #6E4024; --drink: #007AFF; --kid: #AF52DE;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  /* The brand is light-only; dark mode keeps the same page. */
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { color-scheme: light; } }
+  html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.45;
+  }
+  a { color: var(--coral-text); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 0 20px; }
+
+  header { padding: 28px 0 8px; }
+  header .wrap { display: flex; align-items: center; justify-content: space-between; }
+  .brand { font-size: 22px; font-weight: 700; color: var(--ink); letter-spacing: -0.3px; }
+  nav a { color: var(--ink); font-size: 15px; margin-left: 22px; }
+
+  .hero { text-align: center; padding: 56px 0 24px; }
+  .wordmark { font-size: 88px; font-weight: 700; letter-spacing: -2.5px; line-height: 1; margin: 0; }
+  .dots { display: flex; justify-content: center; gap: 10px; margin: 18px 0 14px; }
+  .dots span { width: 12px; height: 12px; border-radius: 50%; display: block; }
+  .tagline { font-size: 28px; font-weight: 600; margin: 0 0 16px; letter-spacing: -0.3px; }
+  .lede { font-size: 18px; color: var(--grey); max-width: 620px; margin: 0 auto 32px; }
+  .lede strong { color: var(--ink); font-weight: 600; }
+
+  .cta { display: inline-block; background: var(--coral); color: #FFFFFF; font-size: 18px; font-weight: 700; padding: 16px 26px; border-radius: 14px; }
+  .cta:hover { text-decoration: none; filter: brightness(0.96); }
+  .cta-note { font-size: 13px; color: var(--grey); margin: 12px 0 0; }
+
+  .shots { padding: 40px 0 8px; }
+  .shots .row { display: flex; gap: 18px; overflow-x: auto; padding: 6px 20px 18px; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; }
+  .shots .row::-webkit-scrollbar { display: none; }
+  .shot { flex: 0 0 auto; width: 232px; scroll-snap-align: center; }
+  .shot img { display: block; width: 100%; aspect-ratio: 1179 / 2556; border-radius: 28px; background: #F1EFE8; border: 1px solid var(--hair); object-fit: cover; }
+  .shot figcaption { font-size: 13px; color: var(--grey); text-align: center; margin-top: 10px; }
+  @media (min-width: 1040px) { .shots .row { justify-content: center; overflow: visible; padding-left: 0; padding-right: 0; } }
+
+  .how { padding: 48px 0 24px; }
+  .how h2 { font-size: 22px; font-weight: 700; margin: 0 0 22px; text-align: center; letter-spacing: -0.2px; }
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  @media (max-width: 720px) { .steps { grid-template-columns: 1fr; } }
+  .step { border: 1px solid var(--hair); border-radius: 16px; padding: 20px; }
+  .step .n { display: inline-flex; width: 28px; height: 28px; border-radius: 50%; align-items: center; justify-content: center; color: #FFFFFF; font-weight: 700; font-size: 14px; margin-bottom: 12px; }
+  .step h3 { font-size: 17px; margin: 0 0 6px; }
+  .step p { font-size: 15px; color: var(--grey); margin: 0; }
+  .step .place { color: var(--teal); font-weight: 500; }
+
+  .beta { text-align: center; padding: 36px 0 56px; }
+  .beta p { color: var(--grey); font-size: 15px; margin: 0 0 18px; }
+
+  footer { border-top: 1px solid var(--hair); padding: 24px 0 40px; font-size: 13px; color: var(--grey); }
+  footer .wrap { display: flex; flex-wrap: wrap; gap: 8px 22px; justify-content: space-between; align-items: center; }
+  footer a { color: var(--grey); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="brand" href="/">Good</a>
+    <nav><a href="#how">How it works</a><a href="/privacy/">Privacy</a></nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <h1 class="wordmark">Good</h1>
+    <div class="dots" aria-hidden="true">
+      <span style="background:var(--app)"></span><span style="background:var(--side)"></span><span style="background:var(--main)"></span><span style="background:var(--dessert)"></span><span style="background:var(--drink)"></span><span style="background:var(--kid)"></span>
+    </div>
+    <p class="tagline">What’s good here?</p>
+    <p class="lede">Good tells you what to order. Instead of rating a restaurant or bar, you rate <strong>the thing you ordered</strong> — the burger, the old fashioned, the pie — and those ratings add up into what’s worth ordering at each place and what’s good near you.</p>
+    <a class="cta" href="https://testflight.apple.com/join/zJd5BY54">Join the beta on TestFlight</a>
+    <p class="cta-note">iPhone only. Install TestFlight from the App Store first, then tap the link.</p>
+  </div>
+</section>
+
+<section class="shots" aria-label="Screenshots">
+  <div class="row">
+    <figure class="shot"><img src="images/01-items-map.png" alt="The Items map: the top-rated dishes and drinks near you, numbered on a map"><figcaption>What’s good near you</figcaption></figure>
+    <figure class="shot"><img src="images/02-item-page.png" alt="An item page with its photo, average stars, the place, and recent reviews"><figcaption>Every item has a score</figcaption></figure>
+    <figure class="shot"><img src="images/03-add-review.png" alt="The Add Review form: photo, stars, place, item and menu category"><figcaption>Rate what you ordered</figcaption></figure>
+    <figure class="shot"><img src="images/04-places-map.png" alt="The Places map: places ranked by the things people liked there"><figcaption>Places, ranked by their best</figcaption></figure>
+  </div>
+</section>
+
+<section class="how" id="how">
+  <div class="wrap">
+    <h2>How it works</h2>
+    <div class="steps">
+      <div class="step"><span class="n" style="background:var(--main)">1</span><h3>Rate what you ordered</h3><p>A photo, a star rating, the place and the item. Food or drink, app or dessert. Takes thirty seconds.</p></div>
+      <div class="step"><span class="n" style="background:var(--side)">2</span><h3>See what’s good at a place</h3><p>Every place gets a page: its top items first, then everything by category. <span class="place">Order the thing people actually come back for.</span></p></div>
+      <div class="step"><span class="n" style="background:var(--drink)">3</span><h3>Find what’s good near you</h3><p>A map of the best items around you, with filters for category, food type, cuisine, price and meal time.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="beta">
+  <div class="wrap">
+    <p>Good is in beta. Reviews from testers are real and count.</p>
+    <a class="cta" href="https://testflight.apple.com/join/zJd5BY54">Join the beta on TestFlight</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Good · Scott Schefferstein, Maryland, United States</span>
+    <span><a href="/privacy/">Privacy</a> · <a href="mailto:support@tastegood.app">support@tastegood.app</a></span>
+  </div>
+</footer>
+
+</body>
+</html>
